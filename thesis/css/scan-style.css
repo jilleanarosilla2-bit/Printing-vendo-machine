@@ -1,0 +1,91 @@
+:root {
+    --primary-blue: #2b59a2;
+    --dark-blue: #0d2c5e;
+    --bg-light: #f4f7f9;
+    --white: #ffffff;
+}
+
+body {
+    background-color: var(--bg-light);
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+
+/* Logo positioned in the Upper Right as per image_1db980.png */
+.top-right-logo {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    width: 140px;
+    z-index: 10;
+    mix-blend-mode: multiply; /* Helps remove white backgrounds from logos */
+}
+
+.scan-container {
+    width: 100%;
+    max-width: 450px;
+    background: var(--white);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.back-link { text-decoration: none; color: var(--primary-blue); font-weight: bold; }
+.service-title { color: var(--primary-blue); text-align: center; margin: 15px 0; }
+
+/* Scanner Display Box */
+.scanner-hero {
+    background: linear-gradient(to bottom, #1e4ea1, #0d2c5e);
+    border-radius: 15px;
+    padding: 40px 20px;
+    text-align: center;
+    color: white;
+    margin-bottom: 25px;
+}
+
+.scanner-icon svg { width: 50px; margin-bottom: 10px; }
+
+/* Grid Layouts */
+.section { margin-bottom: 20px; }
+.section label { display: block; font-weight: bold; margin-bottom: 10px; }
+
+.options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.options-grid.four-cols { grid-template-columns: repeat(4, 1fr); }
+
+.opt-btn {
+    padding: 12px;
+    border: 1px solid #ddd;
+    background: white;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.opt-btn.active {
+    background-color: var(--primary-blue);
+    color: white;
+    border-color: var(--primary-blue);
+}
+
+/* Footer & Payment */
+.payment-footer {
+    background: var(--primary-blue);
+    border-radius: 15px;
+    padding: 20px;
+    color: white;
+    margin-top: 10px;
+}
+
+.price-row { display: flex; justify-content: space-between; font-size: 1.4rem; font-weight: bold; }
+.balance-text { font-size: 0.9rem; margin: 5px 0 15px 0; opacity: 0.9; }
+
+.footer-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+.btn-secondary { background: white; color: var(--primary-blue); border: none; padding: 12px; border-radius: 25px; font-weight: bold; cursor: pointer; }
+.btn-primary { background: rgba(255,255,255,0.3); color: white; border: none; padding: 12px; border-radius: 25px; font-weight: bold; cursor: pointer; }
+
+.btn-primary:not(:disabled) { background: white; color: var(--primary-blue); }

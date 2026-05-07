@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Print Service</title>
+    <link rel="stylesheet" href="css/print-style.css">
+</head>
+<body>
+
+    <!-- Upper Right Logo (image/final logo.png) -->
+    <img src="image/final logo.png" alt="Logo" class="top-right-logo">
+
+<div class="print-container">
+    <a href="main.html" class="back-btn">← Back</a>
+    <h1>Print Service</h1>
+
+
+    <!-- Step 1: Upload File -->
+    <div class="step">
+        <span class="step-title">Step 1: Upload File</span>
+        <div class="upload-box" onclick="document.getElementById('fileInput').click()">
+            <input type="file" id="fileInput" hidden onchange="displayFileName()">
+            <div class="upload-icon">📤</div>
+            <span>Tap to Upload File</span>
+            <p style="font-size: 10px; color: #777;">Supported: PDF, DOCX, JPG, PNG</p>
+        </div>
+    </div>
+
+    <!-- Selected File Banner -->
+    <div id="file-banner" class="selected-file-banner" style="display: none;">
+        <div class="banner-icon">📄</div>
+        <div class="banner-text">
+            <span style="font-size: 12px; color: #666;">Selected File</span>
+            <div id="file-name-display" style="font-weight: bold; color: #333;"></div>
+        </div>
+    </div>
+
+    <!-- Step 2: Choose Color -->
+    <div class="step">
+        <span class="step-title">Step 2: Choose Color</span>
+        <div class="options-grid">
+            <button class="opt-btn active" onclick="setColor('bw', this)">
+                Black & White
+                <span id="bw-display" style="display:none;"></span>
+            </button>
+            <button class="opt-btn" onclick="setColor('color', this)">
+                Color
+                <span id="color-display" style="display:none;"></span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Step 3: Paper Size -->
+    <div class="step">
+        <span class="step-title">Step 3: Paper Size</span>
+        <div class="options-grid">
+            <button class="opt-btn active" onclick="setSize(this)">A4</button>
+            <button class="opt-btn" onclick="setSize(this)">LETTER</button>
+            <button class="opt-btn" onclick="setSize(this)">LEGAL</button>
+        </div>
+    </div>
+
+    <!-- Step 4: Copies -->
+    <div class="step">
+        <span class="step-title">Step 4: Number of Copies</span>
+        <div class="counter">
+            <button class="circle-btn" onclick="updateCopies(-1)">-</button>
+            <span id="copy-count" style="font-size: 24px; font-weight: bold;">1</span>
+            <button class="circle-btn" onclick="updateCopies(1)">+</button>
+        </div>
+    </div>
+
+ <!-- Summary -->
+<div class="summary-box">
+    <div class="total-row">
+        <span>Total Cost:</span>
+        <span>₱<span id="total-price">0</span></span>
+    </div>
+    
+    <p>Balance Inserted: ₱<span id="balance-amount">0</span></p> 
+
+    <!-- THE WARNING MESSAGE AREA -->
+    <p id="warning-msg" style="color: #ffcccc; font-size: 13px; font-weight: bold; text-align: center; margin: 10px 0; display: block;">
+        ⚠️ Please insert coins!
+    </p>
+
+    <div class="action-btns">
+        <button class="action-btn btn-cancel" onclick="window.location.href='main.html'">Cancel</button>
+        
+        <!-- THE PROTECTED PRINT BUTTON -->
+        <button class="action-btn btn-coins" id="print-button" onclick="processPayment()" disabled>
+            Insert ₱<span id="needed-amount">0</span> to Print
+        </button>
+    </div>
+</div>
+
+<!-- CONNECTING THE EXTERNAL SCRIPT HERE -->
+ <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyDe9F5oog4VJboPY9Gj6hpgG0aANJJZkDQ",
+    authDomain: "printing-vendo-machine-19520.firebaseapp.com",
+    projectId: "printing-vendo-machine-19520",
+    storageBucket: "printing-vendo-machine-19520.firebasestorage.app",
+    messagingSenderId: "604454072452",
+    appId: "1:604454072452:web:7074ee0c3bd0e90b0592d1",
+    measurementId: "G-VT2FJFDG2K"
+  };
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore(); // This defines 'db' for your print.js
+</script>
+
+<script src="js/print.js"></script>
+
+</body>
+</html>

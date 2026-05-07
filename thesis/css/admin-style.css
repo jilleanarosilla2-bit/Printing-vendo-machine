@@ -1,0 +1,292 @@
+/* --- Global Variables --- */
+:root {
+    --admin-dark: #052150;
+    --admin-blue: #0d3b85;
+    --admin-bg: #f4f7f6;
+    --text-main: #2c3e50;
+    --success: #27ae60;
+    --danger: #e74c3c;
+    --white: #ffffff;
+    --border: #e0e4e8;
+}
+
+/* --- Base Layout --- */
+body {
+    margin: 0;
+    display: flex;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--admin-bg);
+    color: var(--text-main);
+    min-height: 100vh;
+}
+
+/* --- Sidebar Navigation --- */
+.side-nav {
+    width: 260px;
+    height: 100vh;
+    background-color: var(--admin-dark);
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    padding: 30px 15px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    box-sizing: border-box;
+    box-shadow: 4px 0 10px rgba(0,0,0,0.1);
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 40px;
+    padding-left: 10px;
+}
+
+.nav-logo h2 {
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+.nav-links {
+    list-style: none;
+    padding: 0;
+    flex-grow: 1;
+}
+
+.nav-links li {
+    padding: 12px 15px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    transition: all 0.3s ease;
+}
+
+.nav-links li.active {
+    background: var(--admin-blue);
+}
+
+.nav-links li:hover:not(.active) {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-links a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-footer {
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.logout-btn {
+    width: 100%;
+    padding: 12px;
+    background: transparent;
+    border: 1px solid var(--white);
+    color: var(--white);
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.logout-btn:hover {
+    background: var(--white);
+    color: var(--admin-dark);
+}
+
+/* --- Main Content Area --- */
+.admin-main {
+    margin-left: 260px;
+    flex-grow: 1;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.admin-header h1 {
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+/* --- Dashboard & Grid Layouts --- */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    background: var(--white);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s;
+}
+
+.stat-card:hover { transform: translateY(-5px); }
+
+.stat-card h3 { font-size: 0.9rem; color: #7f8c8d; margin: 0; }
+
+.stat-card .value {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--admin-dark);
+    margin: 15px 0;
+}
+
+.stat-card span { font-size: 0.8rem; color: #95a5a6; }
+
+/* --- Forms & Cards --- */
+.card-large {
+    background: var(--white);
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    margin-bottom: 30px;
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.price-input {
+    margin-bottom: 20px;
+}
+
+.price-input label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.price-input input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+.price-input input:focus {
+    border-color: var(--admin-blue);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(13, 59, 133, 0.1);
+}
+
+/* --- Save Button (Matching Image Verbatim) --- */
+.save-btn {
+    background: var(--danger); /* Red Color #e74c3c */
+    color: var(--white);
+    border: none;
+    padding: 15px 35px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.save-btn:hover {
+    background: #c0392b;
+    box-shadow: 0 6px 15px rgba(231, 76, 60, 0.4);
+    transform: translateY(-2px);
+}
+
+.save-btn:active { transform: translateY(0); }
+
+/* --- Password Toggle Styling --- */
+.password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-wrapper input {
+    padding-right: 45px !important;
+}
+
+.eye-toggle {
+    position: absolute;
+    right: 12px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #7f8c8d;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    z-index: 10;
+}
+
+.eye-toggle:hover { color: var(--admin-blue); }
+
+.eye-toggle svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* --- Hardware Bars --- */
+.progress-bar {
+    background: #ecf0f1;
+    height: 12px;
+    border-radius: 6px;
+    margin: 12px 0 25px 0;
+    overflow: hidden;
+}
+
+.fill {
+    height: 100%;
+    background: var(--success);
+    transition: width 1s ease-in-out;
+}
+
+/* --- Tables --- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th {
+    text-align: left;
+    padding: 15px;
+    border-bottom: 2px solid var(--admin-bg);
+    color: #7f8c8d;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+}
+
+table td {
+    padding: 15px;
+    border-bottom: 1px solid var(--admin-bg);
+}
+
+/* Utility to center button on pricing page */
+.admin-actions {
+    text-align: right;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--admin-bg);
+}

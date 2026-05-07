@@ -1,0 +1,194 @@
+/* css/print-style.css */
+
+:root {
+    --primary-blue: #2b59a2;
+    --dark-blue: #224a8b;
+    --light-bg: #f8fbff;
+    --text-main: #333;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: radial-gradient(circle at top left, rgba(255,255,255,0.8), transparent),
+                linear-gradient(160deg, #ffffff 20%, #e1e8f0 40%, #0d3b85 90%);
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.print-container {
+    background: white;
+    width: 90%;
+    max-width: 550px;
+    border-radius: 25px;
+    padding: 40px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+}
+
+.back-btn {
+    text-decoration: none;
+    color: var(--primary-blue);
+    font-weight: bold;
+    font-size: 14px;
+}
+
+h1 {
+    text-align: center;
+    color: var(--primary-blue);
+    font-size: 2.2rem;
+    margin: 10px 0 30px 0;
+}
+
+/* Logo positioned in the Upper Right as per image_1db980.png */
+.top-right-logo {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    width: 140px;
+    z-index: 10;
+    mix-blend-mode: multiply; /* Helps remove white backgrounds from logos */
+}
+
+.step {
+    margin-bottom: 20px;
+}
+
+.step-title {
+    font-weight: 700;
+    color: #000;
+    display: block;
+    margin-bottom: 12px;
+    font-size: 1.1rem;
+}
+
+/* Step 1: Upload Box */
+.upload-box {
+    border: 1.5px dashed #ccc;
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.upload-box:hover {
+    border-color: var(--primary-blue);
+    background-color: var(--light-bg);
+}
+
+/* File Banner (from image_e7ffad.png) */
+.selected-file-banner {
+    display: flex;
+    align-items: center;
+    background-color: #ecf3fe;
+    border-radius: 15px;
+    padding: 15px 20px;
+    margin: 20px 0;
+    gap: 15px;
+}
+
+.banner-icon {
+    font-size: 24px;
+    background: white;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+/* Step 2 & 3: Selection Grid */
+.options-grid {
+    display: flex;
+    gap: 12px;
+}
+
+.opt-btn {
+    flex: 1;
+    padding: 14px;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    background: white;
+    font-weight: 600;
+    cursor: pointer;
+    color: #444;
+    transition: 0.2s;
+}
+
+.opt-btn.active {
+    background-color: var(--primary-blue);
+    color: white;
+    border-color: var(--primary-blue);
+}
+
+/* Step 4: Counter */
+.counter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+}
+
+.circle-btn {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 1px solid #bccce6;
+    background: white;
+    color: var(--primary-blue);
+    font-size: 22px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Summary Box (Dark Blue) */
+.summary-box {
+    background-color: var(--dark-blue);
+    color: white;
+    padding: 25px;
+    border-radius: 20px;
+    margin-top: 30px;
+}
+
+.total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.action-btns {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.action-btn {
+    flex: 1;
+    padding: 14px;
+    border-radius: 30px;
+    border: none;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.btn-cancel {
+    background: white;
+    color: var(--dark-blue);
+}
+
+.btn-coins {
+    background: rgba(255, 255, 255, 0.3); /* Transparent white look */
+    color: white;
+    backdrop-filter: blur(5px);
+}

@@ -1,0 +1,283 @@
+/* Root Variables for consistency */
+:root {
+    --dark-blue: #052150;
+    --light-blue: #0d3b85;
+    --text-dark: #1a2a44;
+    --error-bg: #fce8e8;
+    --error-text: #c53030;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background: radial-gradient(circle at top left, rgba(255,255,255,0.8), transparent),
+                linear-gradient(160deg, #ffffff 20%, #e1e8f0 40%, #0d3b85 90%);
+    background-size: cover;
+    min-height: 100vh;
+}
+
+/* Logo positioned in the Upper Right */
+.top-right-logo {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    width: 140px;
+    z-index: 10;
+    mix-blend-mode: multiply;
+}
+
+.kiosk-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.header {
+    width: 100%;
+    padding: 10px 20px;
+}
+
+.menu-btn {
+    font-size: 35px;
+    cursor: pointer;
+    font-weight: bold;
+    color: var(--dark-blue);
+}
+
+h1.title {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    color: var(--text-dark);
+    text-transform: uppercase;
+    margin: 40px 0;
+    letter-spacing: 5px;
+    font-weight: 900;
+}
+
+/* Service Card Layout */
+.services {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    background: white;
+    border-radius: 25px;
+    width: 340px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.card:hover { transform: translateY(-10px); }
+
+.card-img {
+    height: 180px; 
+    position: relative; 
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    overflow: hidden;
+    border-radius: 25px 25px 0 0;
+}
+
+.header-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.85;
+    transition: transform 0.3s ease;
+}
+
+.card:hover .header-photo {
+    transform: scale(1.1);
+}
+
+.img-print { background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); }
+.img-xerox { background: linear-gradient(135deg, #00b4db 0%, #0083b0 100%); }
+.img-scan { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+
+.card-content { 
+    padding: 25px; 
+    display: flex; 
+    flex-direction: column; 
+    height: 180px; 
+}
+
+.card-title-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.card-content h2 { margin: 0; font-size: 1.8rem; color: var(--text-dark); }
+
+.btn-start {
+    background-color: var(--light-blue);
+    color: white;
+    padding: 15px;
+    border-radius: 35px;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+    margin-top: auto;
+    transition: background 0.3s;
+}
+
+.btn-start:hover { background-color: var(--dark-blue); }
+
+/* --- ADMIN SIDEBAR --- */
+.admin-sidebar {
+    position: fixed;
+    left: -400px;
+    top: 0;
+    width: 380px;
+    height: 100%;
+    background-color: var(--dark-blue);
+    color: white;
+    transition: 0.4s ease;
+    z-index: 1001;
+    padding: 40px 30px;
+    box-sizing: border-box;
+}
+
+.admin-sidebar.active { left: 0; }
+
+.admin-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.back-link { color: white; text-decoration: none; font-size: 14px; opacity: 0.8; }
+.admin-label { font-weight: bold; font-size: 18px; }
+
+.admin-hero { text-align: center; margin-bottom: 30px; }
+
+.lock-icon {
+    width: 65px;
+    height: 65px;
+    border: 2px solid white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 20px auto;
+}
+
+.lock-icon svg { width: 32px; }
+
+.admin-hero h3 { margin-bottom: 10px; }
+.admin-hero p { font-size: 13px; opacity: 0.7; }
+
+/* --- PASSWORD FIELD & EYE TOGGLE --- */
+.password-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.password-container input {
+    width: 100%;
+    padding: 15px;
+    padding-right: 50px; /* Space for the eye icon */
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 8px;
+    color: white;
+    font-size: 1rem;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.password-container input:focus {
+    border-color: #4facfe;
+}
+
+.eye-toggle {
+    position: absolute;
+    right: 12px;
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s, transform 0.1s;
+    z-index: 5;
+}
+
+.eye-toggle svg {
+    width: 22px;
+    height: 22px;
+}
+
+.eye-toggle:hover {
+    color: #ffffff;
+    transform: scale(1.1);
+}
+
+.eye-toggle:active {
+    transform: scale(0.95);
+}
+
+.error-msg {
+    background-color: var(--error-bg);
+    color: var(--error-text);
+    font-size: 12px;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.forgot-link {
+    cursor: pointer;
+    text-align: left;
+    margin: 25px 0;
+    font-size: 16px;
+    opacity: 0.9;
+    transition: opacity 0.2s;
+}
+
+.forgot-link:hover { opacity: 1; text-decoration: underline; }
+
+.login-pill {
+    width: 100%;
+    background-color: white;
+    color: var(--dark-blue);
+    border: none;
+    padding: 18px;
+    border-radius: 40px;
+    font-size: 20px;
+    font-weight: 900;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.1s;
+}
+
+.login-pill:hover {
+    background-color: #f0f0f0;
+}
+
+.login-pill:active {
+    transform: scale(0.98);
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 1000;
+}
+.overlay.active { display: block; }

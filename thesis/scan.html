@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scan Service</title>
+    <link rel="stylesheet" href="css/scan-style.css">
+</head>
+<body>
+
+    <!-- Upper Right Logo (image/final logo.png) -->
+    <img src="image/final logo.png" alt="Logo" class="top-right-logo">
+
+<div class="scan-container">
+    <a href="main.html" class="back-link">← Back</a>
+    <h1 class="service-title">Scan Service</h1>
+
+    <!-- Step 1: Scanner Status -->
+    <div class="scanner-hero" id="scanner-display">
+        <div class="scanner-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 8h14M5 12h14M5 16h14M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v12a2 2 0 01-2 2z"/>
+            </svg>
+        </div>
+        <h2 id="status-text">Scanner Ready</h2>
+        <p>Place document on flatbed scanner</p>
+    </div>
+
+    <!-- Step 2: Destination Selection -->
+    <div class="section">
+        <label>Save Scan To:</label>
+        <div class="options-grid">
+            <button class="opt-btn active" onclick="setTarget('usb', this)">USB Drive</button>
+            <button class="opt-btn" onclick="setTarget('wifi', this)">WiFi Upload</button>
+        </div>
+    </div>
+
+    <!-- Step 3: Format Selection -->
+    <div class="section">
+        <label>Select Format:</label>
+        <div class="options-grid four-cols">
+            <button class="opt-btn active" onclick="setFormat('pdf', this)">PDF</button>
+            <button class="opt-btn" onclick="setFormat('jpg', this)">JPG</button>
+            <button class="opt-btn" onclick="setFormat('docx', this)">DOCX</button>
+            <button class="opt-btn" onclick="setFormat('png', this)">PNG</button>
+        </div>
+    </div>
+
+    <!-- Payment Footer -->
+    <div class="payment-footer">
+        <div class="price-row">
+            <span>Total Cost:</span>
+            <span class="price">₱<span id="display-price">0</span></span>
+        </div>
+        <p class="balance-text">Balance Inserted: ₱<span id="user-balance">0</span></p>
+        
+        <div class="footer-actions">
+            <button class="btn-secondary" onclick="location.href='main.html'">Cancel</button>
+            <button class="btn-primary" id="start-scan-btn" onclick="runScanSequence()" disabled>
+                Add Coins
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- CONNECTING THE EXTERNAL SCRIPT HERE -->
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyDe9F5oog4VJboPY9Gj6hpgG0aANJJZkDQ",
+        authDomain: "printing-vendo-machine-19520.firebaseapp.com",
+        projectId: "printing-vendo-machine-19520",
+        storageBucket: "printing-vendo-machine-19520.firebasestorage.app",
+        messagingSenderId: "604454072452",
+        appId: "1:604454072452:web:7074ee0c3bd0e90b0592d1",
+        measurementId: "G-VT2FJFDG2K"
+      };
+      
+      firebase.initializeApp(firebaseConfig);
+      const db = firebase.firestore(); 
+    </script>
+
+    <script src="js/scan.js"></script>
+
+</body>
+</html>

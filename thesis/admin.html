@@ -1,0 +1,117 @@
+admin.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Kiosk System</title>
+    <link rel="stylesheet" href="css/admin-style.css">
+    <style>
+
+        /* Essential styles for the Eye Toggle */
+        .password-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+        .password-wrapper input {
+            width: 100%;
+
+            padding-right: 40px !important; /* Space for the eye icon */
+        }
+        .eye-toggle {
+            position: absolute;
+            right: 10px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            color: #555;
+            display: flex;
+            align-items: center;
+            padding: 0;
+            z-index: 10;
+        }
+        .eye-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar Navigation -->
+    <nav class="side-nav">
+        <div class="nav-logo">
+            <span class="icon">⚙️</span>
+            <h2>Kiosk Admin</h2>
+        </div>
+        <ul class="nav-links">
+            <li class="active" id="link-dashboard"><a href="#" onclick="showSection('dashboard')">📊 Dashboard</a></li>
+            <li id="link-transactions"><a href="#" onclick="showSection('transactions')">💰 Transactions</a></li>
+            <li id="link-pricing"><a href="#" onclick="showSection('pricing')">🏷️ Pricing Setup</a></li>
+            <li id="link-maintenance"><a href="#" onclick="showSection('maintenance')">🛠️ Maintenance</a></li>
+        </ul>
+        <div class="nav-footer">
+            <button onclick="location.href='main.html'" class="logout-btn">Exit to Kiosk</button>
+        </div>
+    </nav>
+
+    <!-- Content Injection Area -->
+    <main class="admin-main" id="main-content-area">
+        <!-- JS will populate this based on selection -->
+    </main>
+
+    <script>
+        // Global function to toggle password visibility
+        function toggleField(inputId, button) {
+            const input = document.getElementById(inputId);
+            const icon = button.querySelector('svg');
+
+            if (input.type === 'password') {
+                input.type = 'text';
+
+                // Change to Open Eye Icon
+                icon.innerHTML = `
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                `;
+            } else {
+                input.type = 'password';
+                // Change back to Eye with Slash (image_d828c2.png)
+                icon.innerHTML = `
+                    <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.06"></path>
+                    <path d="M22.9 12.2a15.42 15.42 0 0 1-5.13 5.12"></path>
+                    <path d="M14.12 14.12A3 3 0 1 1 9.88 9.88"></path>
+                    <path d="M1 1l22 22"></path>
+            `;
+            }
+        }
+    </script>
+<!-- Your admin.js MUST be below the block above -->
+
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyDe9F5oog4VJboPY9Gj6hpgG0aANJJZkDQ",
+    authDomain: "printing-vendo-machine-19520.firebaseapp.com",
+    projectId: "printing-vendo-machine-19520",
+    storageBucket: "printing-vendo-machine-19520.firebasestorage.app",
+    messagingSenderId: "604454072452",
+    appId: "1:604454072452:web:7074ee0c3bd0e90b0592d1",
+    measurementId: "G-VT2FJFDG2K"
+  };
+  
+  // Initialize Firebase for the Admin Page
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore(); 
+</script>
+
+<script src="js/admin.js"></script>
+<
+</body>
+</html>

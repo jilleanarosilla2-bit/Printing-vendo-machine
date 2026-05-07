@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Printing Kiosk - Start</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #003399;
+            --accent-blue: #0066cc;
+            --button-blue: #7bb5ff;
+            --white: #ffffff;
+            --dark-bg: #001a4d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--white);
+            color: var(--primary-blue);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* Top Section */
+        .hero-section {
+            flex: 1.5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background-image: radial-gradient(circle at 10% 10%, #e5e5e5 1px, transparent 1px);
+            background-size: 25px 25px;
+            padding: 20px;
+            position: relative;
+        }
+
+        .logo-placeholder {
+            width: 140px;
+            height: 140px;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-weight: 800;
+            font-size: 3rem;
+            letter-spacing: 2px;
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+
+        .sub-headline {
+            font-weight: 700;
+            font-size: 1.6rem;
+            color: var(--accent-blue);
+            letter-spacing: 4px;
+            margin-bottom: 20px;
+        }
+
+        .features-list {
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: 3px;
+            margin-bottom: 30px;
+        }
+
+        /* The Start Button */
+        .start-btn {
+            background-color: var(--button-blue);
+            color: white;
+            padding: 15px 60px;
+            border-radius: 50px;
+            font-size: 2.2rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            text-decoration: none;
+            border: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .start-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* Wave Decoration */
+        .wave-container {
+            width: 100%;
+            line-height: 0;
+            margin-top: -50px;
+        }
+
+        /* Bottom Section */
+        .services-section {
+            background: linear-gradient(180deg, var(--accent-blue) 0%, var(--dark-bg) 100%);
+            color: var(--white);
+            padding: 40px 5%;
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            flex: 1;
+        }
+
+        .service-card {
+            flex: 1;
+            padding: 0 15px;
+            max-width: 220px;
+        }
+
+        .service-icon {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .service-card h3 {
+            font-size: 0.9rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .service-card p {
+            font-size: 0.75rem;
+            opacity: 0.85;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero-section">
+        <div class="logo-placeholder">
+            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="45" stroke="#0066cc" stroke-width="4" stroke-dasharray="240 40"/>
+                <rect x="25" y="35" width="50" height="25" rx="3" fill="#003399"/>
+                <rect x="35" y="25" width="30" height="10" fill="#003399" opacity="0.6"/>
+                <rect x="30" y="55" width="40" height="15" fill="white" stroke="#003399" stroke-width="2"/>
+            </svg>
+        </div>
+
+        <h1>SELF SERVICE</h1>
+        <div class="sub-headline">PRINTING KIOSK</div>
+        
+        <div class="features-list">
+            FAST &bull; EASY &bull; CONVENIENT
+        </div>
+
+        <!-- NAVIGATION WRAPPER -->
+        <a href="main.html" style="text-decoration: none;">
+            <button class="start-btn">START</button>
+        </a>
+    </section>
+
+    <div class="wave-container">
+        <svg viewBox="0 0 1440 320" preserveAspectRatio="none" style="height: 120px; width: 100%;">
+            <path fill="#0066cc" d="M0,192L48,181.3C96,171,192,149,288,149.3C384,149,480,171,576,192C672,213,768,235,864,224C960,213,1056,171,1152,149.3C1248,128,1344,128,1392,128L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+        </svg>
+    </div>
+
+    <section class="services-section">
+        <div class="service-card">
+            <span class="service-icon">🖨️</span>
+            <h3>Print</h3>
+            <p>Print your documents quickly and easily</p>
+        </div>
+
+        <div class="service-card">
+            <span class="service-icon">📄</span>
+            <h3>Scan</h3>
+            <p>Scan and save your documents</p>
+        </div>
+
+        <div class="service-card">
+            <span class="service-icon">📑</span>
+            <h3>Xerox</h3>
+            <p>Make copies fast and hassle-free</p>
+        </div>
+
+        <div class="service-card">
+            <span class="service-icon">₱</span>
+            <h3>Easy Payment</h3>
+            <p>Insert coins and pay conveniently</p>
+        </div>
+    </section>
+
+</body>
+</html>
